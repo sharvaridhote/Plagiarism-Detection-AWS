@@ -5,10 +5,9 @@ import os
 import pandas as pd
 
 from sklearn.externals import joblib
-from sklearn.svm import SVC
 
 ## TODO: Import any additional libraries you need to define a model
-
+from sklearn.ensemble import RandomForestClassifier
 
 # Provided model load function
 def model_fn(model_dir):
@@ -62,7 +61,6 @@ if __name__ == '__main__':
 
     ## TODO: Define a model 
     model = RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1)
-    #model = SVC(gamma=2, C=1),
     
     
     ## TODO: Train the model

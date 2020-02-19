@@ -86,13 +86,13 @@ def train(model, train_loader, epochs, criterion, optimizer, device):
             loss = criterion(y_pred, batch_y)
             loss.backward()
             optimizer.step()
-            accuracy = np.sum(batch_y.reshape(-1,1)==y_pred) / len(batch_y)
+           
             
             total_loss += loss.data.item()
             
-            train_accuracy+= accuracy.data.item()
+            
 
-        print("Epoch: {}, Loss: {}".format(epoch, total_loss / len(train_loader)), accuracy)
+        print("Epoch: {}, Loss: {}".format(epoch, total_loss / len(train_loader)))
 
 
 ## TODO: Complete the main code
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     
     ## TODO: Add args for the three model parameters: input_features, hidden_dim, output_dim
     # Model Parameters
-    parser.add_argument('--input_features', type=int, default=3, metavar='IN',
+    parser.add_argument('--input_features', type=int, default=4, metavar='IN',
                         help='size of the input feature (default: 2)')
     parser.add_argument('--hidden_dim', type=int, default=10, metavar='H',
                         help='size of the hidden dimension (default: 10)')

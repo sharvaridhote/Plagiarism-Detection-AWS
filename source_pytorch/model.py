@@ -44,14 +44,10 @@ class BinaryClassifier(nn.Module):
         """
         
         # define the feedforward behavior
-        x = x.view(x.size(0), -1)  # to fix runtimeerror size mismatch
-        x = self.encoder(x)
-        x = self.decoder(x)
+      
         out = F.relu(self.fc1(x)) # activation on hidden layer
         out = self.drop(out)
-        out = self.fc2(out)
-        
-        
+        out = self.fc2(out)     
         return self.sig(out) # returning class score
         
         
